@@ -146,6 +146,9 @@
 (require 'init-zig)
 (require 'init-terminals)
 
+;; Edward custom
+(require 'init-java)
+
 ;; Extra packages which don't require any configuration
 
 (require-package 'sudo-edit)
@@ -178,6 +181,10 @@
             (require 'server)
             (unless (server-running-p)
               (server-start))))
+
+;; Edward's optional
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'java-mode-hook 'eglot-ensure)
 
 ;; Variables configured via the interactive 'customize' interface
 (when (file-exists-p custom-file)
